@@ -1,0 +1,114 @@
+<div id="navbar-wrapper">
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style='border: none; background:  #F7F9F9'>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">
+                        <span class="glyphicon glyphicon-home"></span> Interpagos</a>
+                </div>
+                <div id="navbar-collapse" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a id="flag" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="http://www.country-dialing-codes.net/img/png-country-4x2-flat-res-320x240/co.png" alt="English" width="28px" height="18px">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-flag" role="menu">
+                                <li>
+                                    <a>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Bogot%C3%A1.svg/200px-Flag_of_Bogot%C3%A1.svg.png" alt="Français" width="28px" height="18px">
+                                        <span>Bogotá</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a id="user-profile" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png" class="img-responsive img-thumbnail img-circle">
+                                <div class="dropdown">
+                                    <button class="dropbtn">{{name}}</button>
+                                    <div class="dropdown-content">
+                                        <a routerLink="/login" (click)='clearLocal()'>Logout</a>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+</div>
+
+
+<div class="fixi">
+    <div class="left">
+        <div class="item">
+            <span class="glyphicon glyphicon-th-large"></span>
+        </div>
+        <div class="item active">
+            <i routerLink='/dashBoard'><span class="glyphicon glyphicon-th-list"></span>
+            Dashboard</i></div>
+        <div class="item">
+            <i routerLink='/adminUser'><span class="glyphicon glyphicon-user"></span>
+            Admin Users</i></div>
+        <div class="item">
+            <i routerLink='/createTraing'><span class="glyphicon glyphicon-pencil"></span>
+            Create Traings</i></div>
+        <div class="item">
+            <i><span class="glyphicon glyphicon-folder-open"></span>
+            Human Talent</i></div>
+        <div class="item">
+            <i><span class="glyphicon glyphicon-comment"></span>
+            General Information</i></div>
+        </div>
+    <div class="right">
+        <table class="table">
+            <tr>
+                <td class="title search col-md-9">
+                    <div class="inner-addon right-addon">
+                        <input class="col-md-12" type="search" placeholder="Поиск">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                </td>
+                <th valign="middle" colspan="2" class="title text-center">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2" class="date">
+                    <strong>Noticias</strong>
+                </td>
+            </tr>
+            <tr>
+                <td class="docs">
+                    <p class="ndoc">Inicio Desarrollo Intranet</p>
+                    <p class="distr">Juan Camilo</p>
+                    <p class="storage">fecha</p>
+                </td>
+                <td class="docdate">01/01/2018</td>
+            </tr>
+            <tr>
+                <td class="docs">
+                    <p class="ndoc">Finalisacion CRUD Usuarios</p>
+                    <p class="distr">Juan Camilo</p>
+                    <p class="storage">Fecha</p>
+                </td>
+                <td class="docdate">24/01/2018</td>
+            </tr>
+            <tr>
+                <td class="docs">
+                    <p class="ndoc">Inicio Desarrollo Traings</p>
+                    <p class="distr">Juan Camilo</p>
+                    <p class="storage">Fecha</p>
+                </td>
+                <td class="docdate">25/01/2018</td>
+            </tr>
+        </table>
+    </div>
+</div>

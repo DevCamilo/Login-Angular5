@@ -1,0 +1,154 @@
+<app-side-var></app-side-var>
+<div class="container">
+  <div class="wrapper">
+    <div class="jumbotron">
+      <h1>Admin Users</h1>
+      <br>
+      <div class="alert alert-info">
+        <button type="button" (click)='clear()' class="btn btn-primary" data-toggle="modal" data-target="#myModal2">Create User</button>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="panel panel-primary filterable" style='border: solid 1px black'>
+            <div class="panel-heading" style='background: black; border: solid 1px black'>
+              <h2 class="panel-title">Users</h2>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="text-align:center"> Id </th>
+                  <th style="text-align:center"> Nick Name </th>
+                  <th style="text-align:center"> Name </th>
+                  <th style="text-align:center"> Last Name </th>
+                  <th style="text-align:center"> Date of Updated </th>
+                  <th style="text-align:center"> Modify </th>
+                  <th style="text-align:center"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let user of users | paginate: { itemsPerPage: 10, currentPage: p }'>
+                  <td>{{user.id_user}}</td>
+                  <td>{{user.user_nickName}}</td>
+                  <td>{{user.user_name}}</td>
+                  <td>{{user.user_lastName}}</td>
+                  <td>{{user.date_update}}</td>
+                  <td>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" (click)='show(user)'>Modify</button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal1" (click)='deleteFunction(user)'>Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+              <tr>
+                <td colspan="5">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Create User-->
+  <div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form class="form-signin" #usuarioForm="ngForm" (ngSubmit)="createUser()">
+            <h3 class="form-signin-heading">Create User</h3>
+            <hr class="colorgraph">
+            <br>
+            <div class="alert alert-info">
+              <strong>Insert User Name And Password.</strong>
+            </div>
+            <input type="text" class="form-control" [(ngModel)]="userModify.user_name" [ngModelOptions]="{standalone: true}" placeholder="{{userModify.user_name}}"/>
+            <input type="text" class="form-control" [(ngModel)]="userModify.user_lastName" [ngModelOptions]="{standalone: true}" placeholder="{{userModify.user_lastName}}"/>
+            <br>
+            <div *ngIf="errors.errorPass" class="alert alert-danger" role="alert">
+              <strong> The Password Must Have At Least 8 Characters! </strong>
+            </div>
+            <div *ngIf="errors.errorAll" class="alert alert-danger" role="alert">
+              <strong> Fill All The Spaces! </strong>
+            </div>
+            <div *ngIf="errors.none" class="alert alert-success">
+              <strong>The User Was Successfully Created!</strong>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="Submit">Create</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Create User-->
+
+  <!-- Modal Update User-->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form class="form-signin" #usuarioForm="ngForm" (ngSubmit)="onSubmit()">
+            <h3 class="form-signin-heading">Update User</h3>
+            <hr class="colorgraph">
+            <br>
+            <div class="alert alert-info">
+              <strong>Insert A New User Name And Last Name.</strong>
+            </div>
+            <input type="text" class="form-control" [(ngModel)]="userModify.user_name" [ngModelOptions]="{standalone: true}" placeholder="{{userModify.user_name}}"/>
+            <input type="text" class="form-control" [(ngModel)]="userModify.user_lastName" [ngModelOptions]="{standalone: true}" placeholder="{{userModify.user_lastName}}"/>
+            <br>
+            <div *ngIf="errors.errorPass" class="alert alert-danger" role="alert">
+              <strong> The Password Must Have At Least 8 Characters! </strong>
+            </div>
+            <div *ngIf="errors.errorAll" class="alert alert-danger" role="alert">
+              <strong> Fill All The Spaces! </strong>
+            </div>
+            <div *ngIf="errors.none" class="alert alert-success">
+              <strong>The User Was Successfully Updated!</strong>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="Submit">Update</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Update User-->
+
+  <!-- Modal Delete User -->
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-success">
+            <strong>The User Was Successfully Removed!</strong>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Delete -->

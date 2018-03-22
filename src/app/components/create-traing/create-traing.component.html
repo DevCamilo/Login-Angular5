@@ -1,0 +1,116 @@
+<app-side-var></app-side-var>
+<div class="container">
+  <div class="wrapper">
+    <div class="jumbotron">
+      <h1>Create Traing </h1>
+      <div class="container">
+        <div class="well well-sm">
+          <form #usuarioForm="ngForm" (ngSubmit)="createTraing()">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Training">
+                    Name Training</label>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-bookmark"></span>
+                    </span>
+                    <input [(ngModel)]="userCreate.nameTraing" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="Trainig"
+                      placeholder="Name Training" required="required" />
+                  </div>
+                </div>
+                <div class="col-md-16">
+                  <div class="form-group">
+                    <label for="Activity">
+                      Activity</label>
+                    <textarea [(ngModel)]="userCreate.activity" [ngModelOptions]="{standalone: true}" name="message" id="Activity" class="form-control"
+                      rows="3" cols="25" required="required" placeholder="Activity"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Objetive">
+                    Objetive</label>
+                  <textarea [(ngModel)]="userCreate.objective" [ngModelOptions]="{standalone: true}" name="message" id="message" class="form-control"
+                    rows="3" cols="25" required="required" placeholder="Objetive"></textarea>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Duration">
+                    Duration</label>
+                  <div class="radio">
+                    <label>
+                      <input [(ngModel)]="userCreate.duration" [ngModelOptions]="{standalone: true}" type="radio" name="Radios1" id="Radios1" value="5 Minutes"> 5 Minutes
+                    </label>
+                    <br>
+                    <label>
+                      <input [(ngModel)]="userCreate.duration" [ngModelOptions]="{standalone: true}" type="radio" name="Radios2" id="Radios2" value="10 Minutes"> 10 Minutes
+                    </label>
+                    <br>
+                    <label>
+                      <input [(ngModel)]="userCreate.duration" [ngModelOptions]="{standalone: true}" type="radio" name="Radios3" id="Radios3" value="30 Minutes"> 30 Minutes
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Periodicity">
+                    Periodicity</label>
+                  <div class="radio">
+                    <label>
+                      <input [(ngModel)]="userCreate.perdiodicity" [ngModelOptions]="{standalone: true}" type="radio" name="options1" id="options1"
+                        value="Every Month"> Every Month
+                    </label>
+                    <br>
+                    <label>
+                      <input [(ngModel)]="userCreate.periodicity" [ngModelOptions]="{standalone: true}" type="radio" name="options2" id="options2"
+                        value="Every Three Months"> Every Three Months
+                    </label>
+                    <br>
+                    <label>
+                      <input [(ngModel)]="userCreate.periodicity" [ngModelOptions]="{standalone: true}" type="radio" name="options3" id="options3"
+                        value="Every Six Months"> Every Six Months
+                    </label>
+                    <br>
+                    <label>
+                      <input [(ngModel)]="userCreate.periodicity" [ngModelOptions]="{standalone: true}" type="radio" name="options4" id="options4"
+                        value="Every Nine Months"> Every Nine Months
+                    </label>
+                    <br>
+                    <label>
+                      <input [(ngModel)]="userCreate.periodicity" [ngModelOptions]="{standalone: true}" type="radio" name="options5" id="options5"
+                        value="Every Year"> Every Year
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="resource">
+                    Resource</label>
+                  <input [(ngModel)]="userCreate.resources" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="resources"
+                    placeholder="Enter Resource" required="required" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Coverage">
+                    Coverage</label>
+                  <input [(ngModel)]="userCreate.coverage" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="coverage"
+                    placeholder="Enter Coverage" required="required" />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                  Create Traing</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

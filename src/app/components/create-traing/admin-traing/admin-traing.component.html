@@ -1,0 +1,114 @@
+<app-side-var></app-side-var>
+<div class="container">
+  <div class="wrapper">
+    <div class="jumbotron">
+      <h1>Admin Trainings</h1>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="panel panel-primary filterable" style='border: solid 1px black'>
+            <div class="panel-heading" style='background: black; border: solid 1px black'>
+              <h2 class="panel-title">Training</h2>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="text-align:center"> Id </th>
+                  <th style="text-align:center"> Name </th>
+                  <th style="text-align:center"> Description </th>
+                  <th style="text-align:center"> Status </th>
+                  <th style="text-align:center"> Modify </th>
+                  <th style="text-align:center"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let traing of traings | paginate: { itemsPerPage: 5, currentPage: p }'>
+                  <td>{{traing.id_training}}</td>
+                  <td>{{traing.training_name}}</td>
+                  <td>{{traing.training_description}}</td>
+                  <td>{{traing.training_status}}</td>
+                  <td>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Modify</button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal1">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+              <tr>
+                <td colspan="8">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Update Training-->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form class="form-signin" #usuarioForm="ngForm">
+          <h3 class="form-signin-heading">Update User</h3>
+          <hr class="colorgraph">
+          <br>
+          <div class="alert alert-info">
+            <strong>Insert A New User Name And Password.</strong>
+          </div>
+          <input type="text" class="form-control"/>
+          <input type="text" class="form-control"/>
+          <br>
+          <div *ngIf="errors.errorPass" class="alert alert-danger" role="alert">
+            <strong> The Password Must Have At Least 8 Characters! </strong>
+          </div>
+          <div *ngIf="errors.errorAll" class="alert alert-danger" role="alert">
+            <strong> Fill All The Spaces! </strong>
+          </div>
+          <div *ngIf="errors.none" class="alert alert-success">
+            <strong>The User Was Successfully Updated!</strong>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block" type="Submit">Update</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal Update training -->
+
+<!-- Modal Delete training -->
+<div class="modal fade" id="myModal1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-success">
+          <strong>The User Was Successfully Removed!</strong>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal Delete training -->
+
+<!-- <div>
+  <app-admin-traing></app-admin-traing>
+</div> -->

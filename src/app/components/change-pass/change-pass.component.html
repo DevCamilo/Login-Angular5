@@ -1,0 +1,40 @@
+<app-nav-bar></app-nav-bar>
+<div class = "container">
+    <div class="wrapper">
+        <form #usuarioForm="ngForm" (ngSubmit)="onSubmit()" class="form-signin">  
+
+            <h3 class="form-signin-heading">Change Password</h3>
+            <hr class="colorgraph"><br>
+
+            <div class="alert alert-info">
+                <strong>Insert Actual Data.</strong> 
+            </div>
+
+            <input type="text" class="form-control" [(ngModel)]="user.user_nickName" [ngModelOptions]="{standalone: true}" placeholder="Username" required="true" autofocus="" />
+            <input type="password" class="form-control" [(ngModel)]="user.user_password" [ngModelOptions]="{standalone: true}" name="Password" placeholder="Actual Password" required=""/>
+            
+            <div class="alert alert-info">
+              <strong>Incert a New Password.</strong> 
+            </div>     		  
+            
+            <input type="password" class="form-control" [(ngModel)]="user.user_passwordNew" [ngModelOptions]="{standalone: true}" name="NewPassword" placeholder="New Password" required=""/>   
+            
+            <div class="alert alert-info">
+              <strong>Repeat a New Password.</strong> 
+            </div>
+
+            <input type="password" class="form-control" [(ngModel)]="user.user_passwordRepeat" [ngModelOptions]="{standalone: true}" name="RepeatPassword" placeholder="Repeat Password" required=""/>
+
+            <div *ngIf="errors.errorAll" class="alert alert-danger" role="alert">
+               <strong> Fill All The Spaces! </strong>
+            </div>
+
+            <div *ngIf="errors.errorPass" class="alert alert-danger" role="alert">
+                <strong> Passwords Do Not Match! </strong>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Change</button>  			
+        
+        </form>			
+    </div>
+</div>
